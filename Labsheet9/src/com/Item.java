@@ -33,7 +33,7 @@ public class Item
 			 return "Error while connecting to the database for inserting."; 
 		 } 
 		 // create a prepared statement
-		 	 String query = " insert into itemsn(`itemID`,`itemCode`,`itemName`,`itemPrice`,`itemDesc`)"
+		 	 String query = " insert into items(`itemID`,`itemCode`,`itemName`,`itemPrice`,`itemDesc`)"
 		     + " values (?, ?, ?, ?, ?)"; 
 			 PreparedStatement preparedStmt = con.prepareStatement(query); 
 			 // binding values
@@ -54,19 +54,6 @@ public class Item
 	 } 
 	 	return output; 
 	 } 
-	 
-	 
-	 
-	 
-	
-	
-	
-	
-	
-	
-	
-		
-	
 	
 	
 	public String readItems()
@@ -81,7 +68,7 @@ public class Item
 	 } 
 	 // Prepare the html table to be displayed
 	 output = "<table border=\"1\"><tr><th>Item Code</th><th>Item Name</th><th>Item Price</th><th>Item Description</th> <th>Update</th><th>Remove</th></tr>"; 
-	 String query = "select * from itemsn"; 
+	 String query = "select * from items"; 
 	 Statement stmt = con.createStatement(); 
 	 ResultSet rs = stmt.executeQuery(query); 
 	 // iterate through the rows in the result set
@@ -103,7 +90,7 @@ public class Item
 		 } 
 		 con.close(); 
 		 // Complete the html table
-		 	output += "</table>"; 
+		 output += "</table>"; 
 	 }
 	catch (Exception e) 
 	 { 
@@ -113,19 +100,6 @@ public class Item
 		return output; 
 	}
 		 
-		 
-		 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
 		
 		public String updateItem(String ID, String code, String name, String price, String desc)
 		{ 
@@ -138,7 +112,7 @@ public class Item
 				 return "Error while connecting to the database for updating."; 
 			 } 
 			 // create a prepared statement
-				 String query = "UPDATE itemsn SET itemCode=?,itemName=?,itemPrice=?,itemDesc=? WHERE itemID=?"; 
+				 String query = "UPDATE items SET itemCode=?,itemName=?,itemPrice=?,itemDesc=? WHERE itemID=?"; 
 				 PreparedStatement preparedStmt = con.prepareStatement(query); 
 				 // binding values
 				 preparedStmt.setString(1, code); 
@@ -159,11 +133,6 @@ public class Item
 			 	return output; 
 			 } 
 		
-			 
-		
-		
-		
-		
 		
 		public String deleteItem(String itemID) 
 			 { 
@@ -176,7 +145,7 @@ public class Item
 				 return "Error while connecting to the database for deleting."; 
 			 } 
 			 	 // create a prepared statement
-				 String query = "delete from itemsn where itemID=?"; 
+				 String query = "delete from items where itemID=?"; 
 				 PreparedStatement preparedStmt = con.prepareStatement(query); 
 				 // binding values
 				 preparedStmt.setInt(1, Integer.parseInt(itemID)); 
