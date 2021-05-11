@@ -45,7 +45,7 @@ session.setAttribute("statusMsg", stsMsg);
 	<script src="Components/jquery-3.2.1.min.js"></script>
 	<script src="Components/items.js"></script>
 	
-	<title>Labsheet 9</title>
+	<title>Labsheet9</title>
 </head>
 <body>
 
@@ -79,8 +79,7 @@ session.setAttribute("statusMsg", stsMsg);
 		 			out.print(session.getAttribute("statusMsg"));
 				%>
 			</div>
-			
-			
+					
 	<br>
 	<br>
 	
